@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    max-width: 800px;
+    list-style-type: none;
+    /* Видаляємо маркери списку */
+    padding: 0;
+}
+
+.gallery li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gallery img {
+    width: 100%;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+}
+
+.fullscreen img {
+    max-width: 90%;
+    max-height: 90%;
+    transition: transform 0.3s ease;
+}
+
+/* Існуючі стилі залишаються без змін */
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    animation: fadeIn 0.5s ease; /* Додаємо анімацію */
+}
+
+/* Існуючі стилі залишаються без змін */
+
+/* Існуючі стилі залишаються без змін */
+
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    animation: fadeIn 0.5s ease; /* Додаємо анімацію */
+}
+
+.fullscreen img {
+    max-width: 90%;
+    max-height: 90%;
+    transition: transform 0.3s ease;
+}
+
+/* Додаємо анімацію */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
