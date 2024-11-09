@@ -56,32 +56,26 @@ images.forEach(image => {
   const img = document.createElement('img');
   img.src = image.preview;
   img.alt = image.description;
-  img.dataset.original = image.original; // Зберігаємо оригінальну URL в data-attribute
+  img.dataset.original = image.original;
   li.append(img);
   fragment.append(li);
 });
 
 gallery.append(fragment);
 
-// Реалізуємо збільшення зображення при натисканні
+// Реалізуємо збільшення зображення при натисканні за допомогою basicLightbox
 gallery.addEventListener('click', event => {
   const target = event.target;
   if (target.tagName === 'IMG') {
-    const fullscreenDiv = document.createElement('div');
-    fullscreenDiv.classList.add('fullscreen');
+    const instance = basicLightbox.create(`
+      <img src="${target.dataset.original}" alt="${target.alt}" style="width: 100%; height: auto;">
+    `);
 
-    const img = document.createElement('img');
-    img.src = target.dataset.original;
-    img.alt = target.alt;
+    // Додаємо обробник кліку для закриття зображення при повторному натисканні
+    instance.element().querySelector('img').addEventListener('click', () => {
+      instance.close();
+    });
 
-    fullscreenDiv.append(img);
-    document.body.append(fullscreenDiv);
-  }
-});
-
-// Реалізуємо закриття зображення при натисканні поза зображенням
-document.body.addEventListener('click', event => {
-  if (event.target.classList.contains('fullscreen')) {
-    event.target.remove();
+    instance.show();
   }
 });
